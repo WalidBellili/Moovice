@@ -16,6 +16,30 @@ const Popular = () => {
     setMovies(response.results);
   };
   console.log(movies);
+  const handleClickFavorites = (id) => {
+    if (localStorage.favoriteIds === undefined) {
+      const array = [];
+      // const array = localStorage.getItem(id);
+      array.push(id);
+      const stringify = JSON.stringify(array);
+
+      localStorage.setItem("favoriteIds", stringify);
+    } else {
+      const localStorageIds = localStorage.getItem("favoriteIds");
+      const favoritesIds = JSON.parse(localStorageIds);
+      const isInclude = favoritesIds.includes(id);
+      if (!isInclude) {
+        favoritesIds.push(id);
+        const stringify = JSON.stringify(favoritesIds);
+        localStorage.setItem("favoriteIds", stringify);
+      }
+    }
+
+    console.log(localStorage);
+    //   const ids = movies.id;
+    //   localStorage.setItem("id", ids);
+  };
+
   return (
     <div>
       {movies.map((movie) => {
@@ -26,6 +50,8 @@ const Popular = () => {
             title={movie.original_title}
             year={movie.release_date}
             description={movie.overview}
+            id={movie.id}
+            handleClickFavorites={() => handleClickFavorites(movie.id)}
           />
         );
       })}
