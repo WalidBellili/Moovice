@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
 
-const Popular = () => {
+const Popular = (props) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -35,7 +35,8 @@ const Popular = () => {
       }
     }
 
-    console.log(localStorage);
+    // const favoritesIds = localStorage;
+    // console.log(favoritesIds);
     //   const ids = movies.id;
     //   localStorage.setItem("id", ids);
   };
