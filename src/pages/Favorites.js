@@ -31,10 +31,10 @@ const Favorites = () => {
   };
 
   return (
-    <div>
+    <div className="wrap">
       {movies.map((movie) => {
         return (
-          <div>
+          <div className="card">
             <Cards
               key={movie.id}
               image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}

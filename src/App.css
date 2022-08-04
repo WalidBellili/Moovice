@@ -23,21 +23,23 @@ ul {
 li {
   display: flex;
   justify-content: space-between;
-}
-a:visited {
   text-decoration: none;
 }
-.card {
-  background: rgb(8, 8, 8);
+a {
   color: whitesmoke;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  text-decoration: none;
+  font-weight: 900;
 }
-.card-article {
+
+.card {
+  color: whitesmoke;
   width: 20%;
+  margin: 10px;
+}
+
+.wrap {
+  background: rgb(8, 8, 8);
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 }

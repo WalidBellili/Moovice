@@ -42,7 +42,7 @@ const Popular = (props) => {
   };
 
   return (
-    <div>
+    <div className="wrap">
       {movies.map((movie) => {
         return (
           <Cards
