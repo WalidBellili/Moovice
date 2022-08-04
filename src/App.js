@@ -4,7 +4,7 @@ import Weekly from "./pages/Weekly";
 import Popular from "./pages/Popular";
 import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
-// import Cards from "./pages/Cards";
+
 import "./App.css";
 
 function App() {
