@@ -4,13 +4,15 @@ const Cards = (props) => {
   // console.log(props);
 
   return (
-    <div>
-      <img src={props.image} alt="" />
-      <p>{props.title}</p>
-      <p>{props.year}</p>
-      <p>{props.description}</p>
-      <button onClick={props.handleClickFavorites}>Favoris</button>
-    </div>
+    <section className="card">
+      <img src={props.image} alt="film posters" />
+      <article className="card-article">
+        <p className="title">{props.title}</p>
+        <p className="year">{props.year}</p>
+        <p className="description">{props.description}</p>
+        <button onClick={props.handleClickFavorites}>Favoris</button>
+      </article>
+    </section>
   );
 };
 
