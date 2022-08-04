@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import Cards from "../components/Cards";
 // console.log(moment.now());
 
 const Weekly = () => {
@@ -21,7 +22,22 @@ const Weekly = () => {
   return (
     <div>
       {weekly.map((movie) => {
-        return <p>{movie.original_title}</p>;
+        return (
+          <div>
+            {/* <img
+              src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              alt={movie.original_title}
+            /> */}
+            <Cards
+              key={movie.id}
+              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              title={movie.original_title}
+              year={movie.release_date}
+              description={movie.overview}
+              id={movie.id}
+            />
+          </div>
+        );
       })}
     </div>
   );
