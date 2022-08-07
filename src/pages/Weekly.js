@@ -20,10 +20,10 @@ const Weekly = () => {
     setWeekly(response.results);
   };
   return (
-    <div>
+    <div className="movie-app">
       {weekly.map((movie) => {
         return (
-          <div>
+          <div className="view">
             {/* <img
               src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
               alt={movie.original_title}

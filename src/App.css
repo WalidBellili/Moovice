@@ -30,16 +30,21 @@ a {
   text-decoration: none;
   font-weight: 900;
 }
-
+h2 {
+  color: whitesmoke;
+}
 .card {
   color: whitesmoke;
   width: 20%;
   margin: 10px;
 }
-
-.wrap {
+.movie-app {
+  width: 100%;
   background: rgb(8, 8, 8);
   display: flex;
-  flex-wrap: wrap;
+}
+
+.view {
+  background: #000;
   width: 100%;
 }

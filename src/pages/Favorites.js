@@ -31,7 +31,7 @@ const Favorites = () => {
   };
 
   return (
-    <div className="wrap">
+    <div className="movie-app">
       {movies.map((movie) => {
         return (
           <div className="card">
