@@ -33,7 +33,7 @@ const Home = () => {
 
   const fetchDataNowPlaying = async () => {
     const request = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=1068f48961417d98e5c5673164bb2d37&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=9f6028c7eca26f5709c3882ffd943beb&page=1`
     );
     const response = await request.json();
     setNowPlaying(response.results);
@@ -42,7 +42,7 @@ const Home = () => {
 
   const fetchDataUpComing = async () => {
     const request = await fetch(
-      "https://api.themoviedb.org/3/discover/movie?sort_by=upcoming.desc&api_key=9f6028c7eca26f5709c3882ffd943beb"
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=9f6028c7eca26f5709c3882ffd943beb&page=1`
     );
     const response = await request.json();
     setUpComing(response.results);
@@ -50,8 +50,8 @@ const Home = () => {
   console.log(upComing);
 
   return (
-    <main>
-      <section>
+    <main className="home">
+      <section className="first-container-home">
         {topRated.map((movie) => {
           return (
             <div>
@@ -71,58 +71,51 @@ const Home = () => {
         })}
       </section>
       {/*  */}
-      <section>
-        <article>
-          <h2>Lastest</h2>
-          <Cards
-            image={`https://image.tmdb.org/t/p/w300/${lastestMovies.poster_path}`}
-            title={lastestMovies.original_title}
-            year={lastestMovies.release_date}
-            description={lastestMovies.overview}
-            id={lastestMovies.id}
-          />
-        </article>
+      <section className="second-container-home">
+        <h2>Lastest</h2>
+        <Cards
+          image={`https://image.tmdb.org/t/p/w300/${lastestMovies.poster_path}`}
+          title={lastestMovies.original_title}
+          year={lastestMovies.release_date}
+          description={lastestMovies.overview}
+          id={lastestMovies.id}
+        />
       </section>
       {/*  */}
-      <section>
+      <section className="third-container-home">
         {nowPlaying.map((movie) => {
           return (
             <div>
-              <article className="top-rated">
-                <h2>Now Playing</h2>
-                <Cards
-                  key={movie.id}
-                  image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  title={movie.original_title}
-                  year={movie.release_date}
-                  description={movie.overview}
-                  id={movie.id}
-                />
-              </article>
+              <h2>Now Playing</h2>
+              <Cards
+                key={movie.id}
+                image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                title={movie.original_title}
+                year={movie.release_date}
+                description={movie.overview}
+                id={movie.id}
+              />
             </div>
           );
         })}
       </section>
       {/*  */}
-      <section className="movie-app">
-        {upComing.map((movie) => {
-          return (
-            <div className="view">
-              <article className="top-rated">
-                <h2>Up Coming</h2>
-                <Cards
-                  key={movie.id}
-                  image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  title={movie.original_title}
-                  year={movie.release_date}
-                  description={movie.overview}
-                  id={movie.id}
-                />
-              </article>
-            </div>
-          );
-        })}
-      </section>
+
+      {upComing.map((movie) => {
+        return (
+          <section className="fourth-container-home">
+            <h2>Up Coming</h2>
+            <Cards
+              key={movie.id}
+              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              title={movie.original_title}
+              year={movie.release_date}
+              description={movie.overview}
+              id={movie.id}
+            />
+          </section>
+        );
+      })}
     </main>
   );
 };
