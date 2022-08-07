@@ -4,9 +4,9 @@ const Cards = (props) => {
   // console.log(props);
 
   return (
-    <section className="card">
-      <img src={props.image} alt="film posters" />
-      <article className="card-article">
+    <section className="card m-2" style={{ width: "18rem" }}>
+      <img className="card-img-top" src={props.image} alt="film posters" />
+      <article>
         <p className="title">{props.title}</p>
         <p className="year">{props.year}</p>
         <p className="description">{props.description}</p>

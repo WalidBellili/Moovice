@@ -20,7 +20,6 @@ const Home = () => {
     const response = await request.json();
     setTopRated(response.results);
   };
-  // console.log(topRated);
 
   const fetchDatalastestMovies = async () => {
     const request = await fetch(
@@ -29,7 +28,7 @@ const Home = () => {
     const response = await request.json();
     setlastestMovies(response);
   };
-  console.log(lastestMovies);
+  // console.log(lastestMovies);
 
   const fetchDataNowPlaying = async () => {
     const request = await fetch(
@@ -47,32 +46,29 @@ const Home = () => {
     const response = await request.json();
     setUpComing(response.results);
   };
-  console.log(upComing);
+  // console.log(upComing);
 
   return (
     <main className="home">
-      <section className="first-container-home">
-        {topRated.map((movie) => {
-          return (
-            <div>
-              <article>
-                <h2>Top rated</h2>
-                <Cards
-                  key={movie.id}
-                  image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                  title={movie.original_title}
-                  year={movie.release_date}
-                  description={movie.overview}
-                  id={movie.id}
-                />
-              </article>
-            </div>
-          );
-        })}
-      </section>
+      <article className="top-rated">
+        <h2 className="text-light m-5">Top rated</h2>
+        <div className="row justify-content-center">
+          {topRated.map((movie) => (
+            <Cards
+              key={movie.id}
+              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+              title={movie.original_title}
+              year={movie.release_date}
+              description={movie.overview}
+              id={movie.id}
+            />
+          ))}
+        </div>
+      </article>
+
       {/*  */}
       <section className="second-container-home">
-        <h2>Lastest</h2>
+        <h2 className="text-light m-5">Lastest</h2>
         <Cards
           image={`https://image.tmdb.org/t/p/w300/${lastestMovies.poster_path}`}
           title={lastestMovies.original_title}
@@ -82,29 +78,10 @@ const Home = () => {
         />
       </section>
       {/*  */}
-      <section className="third-container-home">
-        {nowPlaying.map((movie) => {
-          return (
-            <div>
-              <h2>Now Playing</h2>
-              <Cards
-                key={movie.id}
-                image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                title={movie.original_title}
-                year={movie.release_date}
-                description={movie.overview}
-                id={movie.id}
-              />
-            </div>
-          );
-        })}
-      </section>
-      {/*  */}
-
-      {upComing.map((movie) => {
-        return (
-          <section className="fourth-container-home">
-            <h2>Up Coming</h2>
+      <article>
+        <h2 className="text-light m-5">Now Playing</h2>
+        <div className="row  justify-content-center">
+          {nowPlaying.map((movie) => (
             <Cards
               key={movie.id}
               image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
@@ -113,9 +90,10 @@ const Home = () => {
               description={movie.overview}
               id={movie.id}
             />
-          </section>
-        );
-      })}
+          ))}
+        </div>
+      </article>
+      {/*  */}
     </main>
   );
 };
