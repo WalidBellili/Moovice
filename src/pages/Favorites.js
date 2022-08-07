@@ -31,21 +31,17 @@ const Favorites = () => {
   };
 
   return (
-    <div className="movie-app">
-      {movies.map((movie) => {
-        return (
-          <div className="card">
-            <Cards
-              key={movie.id}
-              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-              title={movie.original_title}
-              year={movie.release_date}
-              description={movie.overview}
-              id={movie.id}
-            />
-          </div>
-        );
-      })}
+    <div className="row justify-content-center">
+      {movies.map((movie) => (
+        <Cards
+          key={movie.id}
+          image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+          title={movie.original_title}
+          year={movie.release_date}
+          description={movie.overview}
+          id={movie.id}
+        />
+      ))}
     </div>
   );
 };

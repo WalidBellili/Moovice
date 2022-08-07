@@ -42,20 +42,18 @@ const Popular = (props) => {
   };
 
   return (
-    <div className="movie-app">
-      {movies.map((movie) => {
-        return (
-          <Cards
-            key={movie.id}
-            image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-            title={movie.original_title}
-            year={movie.release_date}
-            description={movie.overview}
-            id={movie.id}
-            handleClickFavorites={() => handleClickFavorites(movie.id)}
-          />
-        );
-      })}
+    <div className="row justify-content-center">
+      {movies.map((movie) => (
+        <Cards
+          key={movie.id}
+          image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+          title={movie.original_title}
+          year={movie.release_date}
+          description={movie.overview}
+          id={movie.id}
+          handleClickFavorites={() => handleClickFavorites(movie.id)}
+        />
+      ))}
     </div>
   );
 };

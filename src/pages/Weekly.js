@@ -20,25 +20,17 @@ const Weekly = () => {
     setWeekly(response.results);
   };
   return (
-    <div className="movie-app">
-      {weekly.map((movie) => {
-        return (
-          <div className="view">
-            {/* <img
-              src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-              alt={movie.original_title}
-            /> */}
-            <Cards
-              key={movie.id}
-              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-              title={movie.original_title}
-              year={movie.release_date}
-              description={movie.overview}
-              id={movie.id}
-            />
-          </div>
-        );
-      })}
+    <div className="row justify-content-center">
+      {weekly.map((movie) => (
+        <Cards
+          key={movie.id}
+          image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+          title={movie.original_title}
+          year={movie.release_date}
+          description={movie.overview}
+          id={movie.id}
+        />
+      ))}
     </div>
   );
 };
