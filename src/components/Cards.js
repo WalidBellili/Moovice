@@ -1,7 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
 
 const Cards = (props) => {
-  // console.log(props);
+  const [str, setStr] = useState("");
+  const [isDescriptionTrue, setIsDescriptionTrue] = useState(true);
+
+  useEffect(() => {
+    if (props.description) {
+      if (isDescriptionTrue) {
+        setStr(props.description.substring(0, 70));
+      } else {
+        setStr(props.description);
+      }
+    }
+  }, [isDescriptionTrue]);
+
+  const handleShowDescription = () => {
+    setIsDescriptionTrue(!isDescriptionTrue);
+  };
 
   return (
     <section className="card m-2" style={{ width: "18rem" }}>
@@ -9,8 +24,11 @@ const Cards = (props) => {
       <article>
         <p className="title">{props.title}</p>
         <p className="year">{props.year}</p>
-        <p className="description">{props.description}</p>
+        {props.description && <p className="description">{str}</p>}
         <button onClick={props.handleClickFavorites}>Favoris</button>
+        <button onClick={handleShowDescription}>
+          {isDescriptionTrue ? `showLess` : `read more`}
+        </button>
       </article>
     </section>
   );
