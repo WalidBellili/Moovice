@@ -46,7 +46,7 @@ const Home = () => {
     const response = await request.json();
     setUpComing(response.results);
   };
-  // console.log(upComing);
+  console.log(upComing);
 
   return (
     <main className="home">

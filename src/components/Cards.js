@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
+// import { useState } from "react";
 
 const Cards = (props) => {
-  const [str, setStr] = useState("");
-  const [isDescriptionTrue, setIsDescriptionTrue] = useState(true);
+  // const [str, setStr] = useState("");
+  // const [isDescriptionTrue, setIsDescriptionTrue] = useState(true);
 
-  useEffect(() => {
-    if (props.description) {
-      if (isDescriptionTrue) {
-        setStr(props.description.substring(0, 70));
-      } else {
-        setStr(props.description);
-      }
-    }
-  }, [isDescriptionTrue]);
+  // useEffect(() => {
+  //   // eslint-disable-next-line
+  //   if (props.description) {
+  //     if (isDescriptionTrue) {
+  //       setStr(props.description.substring(0, 70));
+  //     } else {
+  //       setStr(props.description);
+  //     }
+  //   }
+  // }, [isDescriptionTrue]);
 
-  const handleShowDescription = () => {
-    setIsDescriptionTrue(!isDescriptionTrue);
-  };
+  // const handleShowDescription = () => {
+  //   setIsDescriptionTrue(!isDescriptionTrue);
+  // };
 
   return (
     <section className="card m-2" style={{ width: "18rem" }}>
@@ -24,11 +25,11 @@ const Cards = (props) => {
       <article>
         <p className="title">{props.title}</p>
         <p className="year">{props.year}</p>
-        {props.description && <p className="description">{str}</p>}
-        <button onClick={props.handleClickFavorites}>Favoris</button>
-        <button onClick={handleShowDescription}>
+        {/* {props.description && <p className="description">{str}</p>}
+        <button onClick={props.handleClickFavorites}>Favoris</button> */}
+        {/* <button onClick={handleShowDescription}>
           {isDescriptionTrue ? `showLess` : `read more`}
-        </button>
+        </button> */}
       </article>
     </section>
   );
