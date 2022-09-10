@@ -9,7 +9,7 @@ const Popular = () => {
 
   const fetchMovies = async () => {
     const request = await fetch(`
-    https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}`);
+    https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=9f6028c7eca26f5709c3882ffd943beb`);
     const response = await request.json();
     setMovies(response.results);
   };

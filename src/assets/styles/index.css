@@ -51,6 +51,11 @@ body {
   margin: 5px;
   background: rgb(138, 1, 1);
   width: 38%;
+  cursor: pointer;
+}
+.card-container .card:hover {
+  transform: scale(1.05);
+  transition: 0.8s;
 }
 .card-container .card img {
   width: 140px;
