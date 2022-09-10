@@ -74,11 +74,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.single-card-container img {
+.single-card-container .bg-img {
   width: 80%;
   height: 80%;
   opacity: 0.3;
   -o-object-fit: fill;
      object-fit: fill;
+}
+.single-card-container .description-absolute {
+  text-align: center;
+  width: 90%;
+  position: absolute;
+  top: 20px;
+}
+.single-card-container .description-absolute .front-img {
+  width: 120px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }/*# sourceMappingURL=index.css.map */

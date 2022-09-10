@@ -27,7 +27,20 @@ const Movie = () => {
       <img
         src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
         alt={movie.title}
+        className="bg-img"
       />
+      <article className="description-absolute">
+        <p>Title : {movie.title}</p>
+        <br />
+        <br />
+        <p>Overview : {movie.overview}</p>
+        <br />
+        <img
+          src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+          alt={movie.title}
+          className="front-img"
+        />
+      </article>
     </section>
   );
 };
