@@ -7,7 +7,8 @@ const Movie = () => {
 
   useEffect(() => {
     fetchMovieById();
-  }, []);
+    // eslint-disable-next-line
+  }, [params.id]);
 
   const fetchMovieById = async () => {
     const request = await fetch(
