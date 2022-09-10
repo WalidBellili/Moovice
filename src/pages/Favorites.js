@@ -10,12 +10,13 @@ const Favorites = () => {
     const stringifiedFavoritesIds = localStorage.getItem("favoriteIds");
     const favoriteIds = JSON.parse(stringifiedFavoritesIds);
 
-    const boxOfPromises = favoriteIds.map((id) => {
-      return fetchMovieById(id);
-    });
-
-    const response = await Promise.all(boxOfPromises);
-    setMovies(response);
+    if (favoriteIds) {
+      const boxOfPromises = favoriteIds.map((id) => {
+        return fetchMovieById(id);
+      });
+      const response = await Promise.all(boxOfPromises);
+      setMovies(response);
+    }
   };
   console.log(movies);
 
@@ -27,7 +28,7 @@ const Favorites = () => {
     return response;
   };
 
-  return <div></div>;
+  return <></>;
 };
 
 export default Favorites;
