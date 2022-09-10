@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "../components/Card";
 
 const Favorites = () => {
   const [movies, setMovies] = useState([]);
@@ -28,7 +29,32 @@ const Favorites = () => {
     return response;
   };
 
-  return <></>;
+  return (
+    <>
+      <h1>Favorites Movies</h1>
+      {movies.length === 0 && (
+        <article>
+          <p>There is no favorites</p>
+        </article>
+      )}
+      {movies.map((movie) => {
+        return (
+          <section className="card-container-favorite">
+            <div className="card-favorite">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                alt={movie.title}
+              />
+            </div>
+            <div className="description-favorite">
+              <p>{movie.title}</p>
+              <p>{movie.release_date}</p>
+            </div>
+          </section>
+        );
+      })}
+    </>
+  );
 };
 
 export default Favorites;
