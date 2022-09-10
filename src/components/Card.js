@@ -17,7 +17,6 @@ const Card = ({ movie }) => {
       stringifiedFavoriteIds = JSON.stringify(favoriteIds);
       localStorage.setItem("favoriteIds", stringifiedFavoriteIds);
     }
-    console.log(favoriteIds);
   };
   return (
     <article className="card">
