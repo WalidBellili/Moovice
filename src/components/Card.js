@@ -12,10 +12,11 @@ const Card = ({ movie }) => {
     if (stringifiedFavoriteIds) {
       favoriteIds = JSON.parse(stringifiedFavoriteIds);
     }
-    // console.log(favoriteIds);
-    favoriteIds.push(movie.id);
-    stringifiedFavoriteIds = JSON.stringify(favoriteIds);
-    localStorage.setItem("favoriteIds", stringifiedFavoriteIds);
+    if (!favoriteIds.includes(movie.id)) {
+      favoriteIds.push(movie.id);
+      stringifiedFavoriteIds = JSON.stringify(favoriteIds);
+      localStorage.setItem("favoriteIds", stringifiedFavoriteIds);
+    }
     console.log(favoriteIds);
   };
   return (
