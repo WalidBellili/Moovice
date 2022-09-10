@@ -1,0 +1,28 @@
+.single-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(68, 8, 8);
+
+  .single-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: green;
+
+    .single-img-container {
+      width: 100vw;
+      img {
+        width: 100%;
+      }
+    }
+    .singledescription {
+      width: 90%;
+      border-radius: 20px;
+      background: red;
+    }
+  }
+}

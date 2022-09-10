@@ -64,4 +64,31 @@ body {
 }
 .card-container .card .description {
   width: 100%;
+}
+
+.single-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(68, 8, 8);
+}
+.single-card-container .single-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: green;
+}
+.single-card-container .single-card .single-img-container {
+  width: 100vw;
+}
+.single-card-container .single-card .single-img-container img {
+  width: 100%;
+}
+.single-card-container .single-card .singledescription {
+  width: 90%;
+  border-radius: 20px;
+  background: red;
 }/*# sourceMappingURL=index.css.map */

@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Movie = () => {
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovie] = useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -14,10 +14,26 @@ const Movie = () => {
       `https://api.themoviedb.org/3/movie/${params.id}?api_key=fea42b1e836ac59816b8332e564dbb41`
     );
     const response = await request.json();
-    setMovies(response);
+    setMovie(response);
   };
-  console.log(movies);
-  return <div></div>;
+  console.log(movie);
+  return (
+    <section className="single-card-container">
+      <article className="single-card">
+        <div className="single-img-container">
+          <img
+            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </div>
+        <div className="singledescription">
+          <p>{movie.title}</p>
+          <p>{movie.overview}</p>
+          <p>{movie.release_date}</p>
+        </div>
+      </article>
+    </section>
+  );
 };
 
 export default Movie;
