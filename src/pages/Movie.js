@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 
 const Movie = () => {
   const [movie, setMovie] = useState([]);
+
   const params = useParams();
 
   useEffect(() => {
     fetchMovieById();
+
     // eslint-disable-next-line
   }, [params.id]);
 
@@ -17,22 +19,15 @@ const Movie = () => {
     const response = await request.json();
     setMovie(response);
   };
+
   console.log(movie);
+
   return (
     <section className="single-card-container">
-      <article className="single-card">
-        <div className="single-img-container">
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-            alt={movie.title}
-          />
-        </div>
-        <div className="singledescription">
-          <p>{movie.title}</p>
-          <p>{movie.overview}</p>
-          <p>{movie.release_date}</p>
-        </div>
-      </article>
+      <img
+        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+        alt={movie.title}
+      />
     </section>
   );
 };
