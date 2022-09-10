@@ -1,0 +1,57 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(18, 9, 9, 0.182);
+  height: 70px;
+  width: 100%;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    width: 15%;
+    @media screen and (max-width: 500px) {
+      width: 100%;
+
+      justify-content: center;
+    }
+
+    h1 {
+      display: flex;
+      align-items: center;
+
+      height: 50px;
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 80%;
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .mobilNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+    width: 100%;
+    background: rgba(18, 9, 9, 0);
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
+}
