@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import Card from "../components/Card";
 
 const Popular = () => {
@@ -16,9 +17,9 @@ const Popular = () => {
   // console.log(movies);
   return (
     <section className="card-container">
-      {movies.map((movie) => {
-        return <Card movie={movie} />;
-      })}
+      {movies.map((movie) => (
+        <Card movie={movie} />
+      ))}
     </section>
   );
 };

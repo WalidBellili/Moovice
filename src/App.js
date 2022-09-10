@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Weekly from "./pages/Weekly";
 import "./assets/styles/index.css";
+import Movie from "./pages/Movie";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<Movie />} />
         <Route path="popular" element={<Popular />} />
         <Route path="/weekly" element={<Weekly />} />
         <Route path="/favorites" element={<Favorites />} />
