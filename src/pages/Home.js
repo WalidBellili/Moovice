@@ -6,33 +6,27 @@ const Home = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
 
   useEffect(() => {
-    fetchTopRatedMovies();
-    fetchNowPlayingMovies();
-    fetchUpComingMovies();
+    gatheringFetchMovie();
   }, []);
 
-  const fetchTopRatedMovies = async () => {
-    const request = await fetch(
+  const fetchMoviesAllCategories = async (url) => {
+    const request = await fetch(url);
+    const response = await request.json();
+    return response;
+  };
+  const gatheringFetchMovie = async () => {
+    const topRated = await fetchMoviesAllCategories(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=9f6028c7eca26f5709c3882ffd943beb`
     );
-    const response = await request.json();
-    setTopRated(response.results);
-  };
-
-  const fetchNowPlayingMovies = async () => {
-    const request = await fetch(
+    setTopRated(topRated.results);
+    const nowPlaying = await fetchMoviesAllCategories(
       `https://api.themoviedb.org/3/movie/now_playing?api_key=9f6028c7eca26f5709c3882ffd943beb`
     );
-    const response = await request.json();
-    setNowPlayingMovies(response.results);
-  };
-
-  const fetchUpComingMovies = async () => {
-    const request = await fetch(
+    setNowPlayingMovies(nowPlaying.results);
+    const upComing = await fetchMoviesAllCategories(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=9f6028c7eca26f5709c3882ffd943beb`
     );
-    const response = await request.json();
-    setUpcomingMovies(response.results);
+    setUpcomingMovies(upComing.results);
   };
 
   return (
