@@ -1,5 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
+import Card from "../components/Card";
 
 const Weekly = () => {
   const [weeklyMovies, setWeeklyMovies] = useState([]);
@@ -23,20 +24,21 @@ const Weekly = () => {
     <section>
       <h1>Weekly Movies</h1>
       <article>
-        {weeklyMovies.map((weekly) => {
+        {weeklyMovies.map((movie) => {
           return (
-            <article className="card-container-favorite">
-              <div className="card-favorite">
-                <img
-                  src={`https://image.tmdb.org/t/p/w300/${weekly.poster_path}`}
-                  alt={weekly.title}
-                />
-              </div>
-              <div className="description-favorite">
-                <p>{weekly.title}</p>
-                <p>{weekly.release_date}</p>
-              </div>
-            </article>
+            // <article className="card-container-favorite">
+            //   <div className="card-favorite">
+            //     <img
+            //       src={`https://image.tmdb.org/t/p/w300/${weekly.poster_path}`}
+            //       alt={weekly.title}
+            //     />
+            //   </div>
+            //   <div className="description-favorite">
+            //     <p>{weekly.title}</p>
+            //     <p>{weekly.release_date}</p>
+            //   </div>
+            // </article>
+            <Card movie={movie} />
           );
         })}
       </article>

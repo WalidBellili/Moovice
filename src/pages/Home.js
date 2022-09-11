@@ -9,11 +9,14 @@ const Home = () => {
     gatheringFetchMovie();
   }, []);
 
+  // ***********************************
   const fetchMoviesAllCategories = async (url) => {
     const request = await fetch(url);
     const response = await request.json();
     return response;
   };
+  // ***********************************
+
   const gatheringFetchMovie = async () => {
     const topRated = await fetchMoviesAllCategories(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=9f6028c7eca26f5709c3882ffd943beb`
@@ -28,6 +31,7 @@ const Home = () => {
     );
     setUpcomingMovies(upComing.results);
   };
+  //   // ***********************************  //   //
 
   return (
     <>
