@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Card from "../components/Card";
 
 const Movie = () => {
   const [movie, setMovie] = useState([]);
@@ -43,7 +42,6 @@ const Movie = () => {
         />
       </article>
     </section>
-    // <Card movie={movie} />
   );
 };
 

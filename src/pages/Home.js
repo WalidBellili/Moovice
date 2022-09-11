@@ -7,6 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     gatheringFetchMovie();
+    // eslint-disable-next-line
   }, []);
 
   // ***********************************

@@ -5,6 +5,7 @@ const Favorites = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetchFavoriteIds();
+    // eslint-disable-next-line
   }, []);
 
   const fetchFavoriteIds = async () => {
