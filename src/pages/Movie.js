@@ -20,7 +20,7 @@ const Movie = () => {
     setMovie(response);
   };
 
-  console.log(movie);
+  //   console.log(movie);
 
   return (
     <section className="single-card-container">
