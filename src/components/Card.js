@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Card = ({ movie }) => {
-  const shortDescription = movie.overview.substring(0, 50);
+  const shortDescription = movie.overview.substring(0, 30);
 
   const handleFavoriteClick = () => {
     let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");

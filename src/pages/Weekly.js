@@ -21,14 +21,14 @@ const Weekly = () => {
   // console.log(weeklyMovies);
 
   return (
-    <section>
+    <main className="fullContainerCard">
       <h1>Weekly Movies</h1>
-      <article>
+      <article className="card-container">
         {weeklyMovies.map((movie) => {
           return <Card movie={movie} />;
         })}
       </article>
-    </section>
+    </main>
   );
 };
 

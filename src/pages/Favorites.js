@@ -33,15 +33,18 @@ const Favorites = () => {
   return (
     <>
       <h1>Favorites Movies</h1>
-      <section className="favorite-container">
+      <section className="fullContainerCard">
         {movies.length === 0 && (
           <article className="empty-alert">
             <p>There is no favorites</p>
           </article>
         )}
-        {movies.map((movie) => {
-          return <Card movie={movie} />;
-        })}
+        <article className="card-container">
+          {movies.map((movie) => {
+            return <Card movie={movie} />;
+          })}
+        </article>
+        ;
       </section>
     </>
   );
