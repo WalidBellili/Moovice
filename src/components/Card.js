@@ -19,24 +19,22 @@ const Card = ({ movie }) => {
     }
   };
   return (
-    <section>
-      <article className="card">
-        <Link to={`/movie/${movie.id}`}>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-              alt={movie.title}
-            />
-          </div>
-          <div className="description">
-            <p>{movie.title}</p>
-            <p>{shortDescription}</p>
-            <p>{movie.release_date}</p>
-          </div>
-        </Link>
-        <button onClick={handleFavoriteClick}>Add to favorites</button>
-      </article>
-    </section>
+    <article className="card">
+      <Link to={`/movie/${movie.id}`}>
+        <div>
+          <img
+            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+            alt={movie.title}
+          />
+        </div>
+        <div className="description">
+          <p>{movie.title}</p>
+          <p>{shortDescription}</p>
+          <p>{movie.release_date}</p>
+        </div>
+      </Link>
+      <button onClick={handleFavoriteClick}>Add to favorites</button>
+    </article>
   );
 };
 

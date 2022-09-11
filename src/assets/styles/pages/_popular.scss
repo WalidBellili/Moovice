@@ -1,43 +1,50 @@
-.card-container {
+.fullContainerCard {
   display: flex;
-  flex-wrap: wrap;
-  font-family: "Times New Roman", Times, serif;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.025);
-  .card {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .card-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 5px;
-    background: rgb(138, 1, 1);
-    width: 60%;
-    cursor: pointer;
-    &:hover {
-      transform: scale(1.01);
-      transition: 0.3s;
-    }
+    justify-content: center;
+    flex-wrap: wrap;
+    background: $color1;
+    background: red;
+    overflow: auto;
 
-    img {
-      width: 140px;
-      margin: 5px;
-      border-radius: 20px;
-    }
-    .description {
+    width: 400px;
+    height: 480px;
+
+    gap: 2%;
+
+    .card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 100%;
-    }
+      justify-content: space-between;
 
-    button {
-      color: black;
-      font-weight: bold;
-      border-radius: 15px;
-      border: 0px solid transparent;
+      div {
+        img {
+          width: 170px;
+          height: 220px;
+          border-radius: 20px;
+        }
+      }
+      .description {
+        width: 180px;
+      }
     }
   }
 }

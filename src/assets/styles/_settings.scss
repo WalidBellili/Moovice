@@ -6,13 +6,14 @@
   font-family: "font2";
   src: url("../fonts/Poppins-Black.ttf");
 }
+$color1: rgb(41, 41, 41);
 * {
   list-style: none;
   text-decoration: none;
   color: whitesmoke;
 }
 body {
-  background: rgb(41, 41, 41);
+  background: $color1;
   font-family: "font1";
   height: 100vh;
 }

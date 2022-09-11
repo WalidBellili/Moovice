@@ -39,21 +39,7 @@ const Favorites = () => {
           </article>
         )}
         {movies.map((movie) => {
-          return (
-            // <article className="card-container-favorite">
-            //   <div className="card-favorite">
-            //     <img
-            //       src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-            //       alt={movie.title}
-            //     />
-            //   </div>
-            //   <div className="description-favorite">
-            //     <p>{movie.title}</p>
-            //     <p>{movie.release_date}</p>
-            //   </div>
-            // </article>
-            <Card movie={movie} />
-          );
+          return <Card movie={movie} />;
         })}
       </section>
     </>

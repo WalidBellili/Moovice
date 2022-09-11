@@ -14,13 +14,15 @@ const Popular = () => {
     const response = await request.json();
     setMovies(response.results);
   };
-  // console.log(movies);
+
   return (
-    <section className="card-container">
-      {movies.map((movie) => (
-        <Card movie={movie} />
-      ))}
-    </section>
+    <main className="fullContainerCard">
+      <section className="card-container">
+        {movies.map((movie) => (
+          <Card movie={movie} />
+        ))}
+      </section>
+    </main>
   );
 };
 
