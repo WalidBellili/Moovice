@@ -1,17 +1,14 @@
 const Card = ({ movie }) => {
-  console.log(movie);
+  const { title, poster_path, release_date, overview } = movie;
   return (
     <article className="card">
-      <img
-        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-        alt=""
-      />
+      <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
       <p>{movie.title}</p>
       <br />
 
       <div className="scroll">
-        <p>Release date : {movie.release_date}</p>
-        <p>Overview : {movie.overview}</p>
+        <p>Release date : {release_date}</p>
+        <p>Overview : {overview}</p>
       </div>
       <button>Favorites</button>
     </article>
