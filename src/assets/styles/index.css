@@ -32,4 +32,43 @@ nav .link a {
 }
 nav .link a:link {
   text-decoration: none;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.cardContainer img {
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.cardContainer .card {
+  width: 200px;
+  height: 500px;
+  text-align: center;
+  margin: 15px;
+}
+.cardContainer .card .scroll {
+  overflow-y: scroll;
+  height: 100px;
+}
+.cardContainer button {
+  margin-top: 20px;
+  border-radius: 10px;
+  height: 35px;
+  width: 100px;
+  background: green;
+  color: red;
+}
+.cardContainer button:hover {
+  transition: 1s;
+  transform: scaleX(1.1);
+  width: 105px;
+  height: 40px;
 }/*# sourceMappingURL=index.css.map */

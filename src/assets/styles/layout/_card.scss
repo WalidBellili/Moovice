@@ -1,0 +1,41 @@
+.cardContainer {
+  display: flex;
+  gap: 2%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 15px;
+  }
+
+  .card {
+    width: 200px;
+    height: 500px;
+    text-align: center;
+    margin: 15px;
+
+    .scroll {
+      overflow-y: scroll;
+      height: 100px;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    &:hover {
+      transition: 1s;
+      transform: scaleX(1.1);
+      width: 105px;
+      height: 40px;
+    }
+    background: green;
+    color: red;
+  }
+}
