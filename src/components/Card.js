@@ -1,16 +1,34 @@
 const Card = ({ movie }) => {
-  const { title, poster_path, release_date, overview } = movie;
+  const { title, poster_path, release_date, overview, id } = movie;
+
+  const handleFavoriteClick = () => {
+    let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
+
+    let favoriteIds = [];
+
+    if (stringifiedFavoriteIds) {
+      favoriteIds = JSON.parse(stringifiedFavoriteIds);
+    }
+
+    if (!favoriteIds.includes(id)) {
+      favoriteIds.push(id);
+      stringifiedFavoriteIds = JSON.stringify(favoriteIds);
+      localStorage.setItem("favoriteIds", stringifiedFavoriteIds);
+    } else {
+      alert("This movie is already a favorite movie");
+    }
+  };
   return (
     <article className="card">
       <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
-      <p>{movie.title}</p>
+      <p>{title}</p>
       <br />
 
       <div className="scroll">
         <p>Release date : {release_date}</p>
         <p>Overview : {overview}</p>
       </div>
-      <button>Favorites</button>
+      <button onClick={handleFavoriteClick}>Favorites</button>
     </article>
   );
 };
