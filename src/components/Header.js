@@ -1,26 +1,21 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-const DesktopHeader = () => {
+const Header = () => {
   return (
-    <header className="header">
+    <nav>
       <div className="title">
         <Link to="/">
-          <h1 className="h1">Moovice</h1>
+          <h1>MOOVICE</h1>
         </Link>
       </div>
-      <nav className="nav">
-        <Link to="/popular">
-          <li>Popular</li>
-        </Link>
-        <Link to="/weekly">
-          <li>Weekly</li>
-        </Link>
-        <Link to="/favorites">
-          <li>Favorites</li>
-        </Link>
-      </nav>
-    </header>
+      <div className="link">
+        <Link to="/popular">Popular</Link>
+        <Link to="/weekly">Weekly</Link>
+        <Link to="/favorites">Favorites</Link>
+      </div>
+    </nav>
   );
 };
 
-export default DesktopHeader;
+export default Header;

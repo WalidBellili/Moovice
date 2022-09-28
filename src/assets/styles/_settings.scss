@@ -1,19 +1,5 @@
-@font-face {
-  font-family: "font1";
-  src: url("../fonts/Poppins-ExtraBoldItalic.ttf");
-}
-@font-face {
-  font-family: "font2";
-  src: url("../fonts/Poppins-Black.ttf");
-}
-$color1: rgb(41, 41, 41);
-* {
-  list-style: none;
-  text-decoration: none;
-  color: whitesmoke;
-}
 body {
-  background: $color1;
-  font-family: "font1";
   height: 100vh;
+  background: #212040;
+  color: whitesmoke;
 }

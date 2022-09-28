@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
+import "./assets/styles/index.css";
+import Favorite from "./pages/Favorites";
 import Popular from "./pages/Popular";
 import Weekly from "./pages/Weekly";
-import "./assets/styles/index.css";
-import Movie from "./pages/Movie";
+import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -13,10 +13,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<Movie />} />
-        <Route path="popular" element={<Popular />} />
-        <Route path="/weekly" element={<Weekly />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorite />} />
+        <Route path="/popular" element={<Popular />} />
+        <Route path="weekly" element={<Weekly />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
