@@ -18,6 +18,16 @@ const Card = ({ movie }) => {
       alert("This movie is already a favorite movie");
     }
   };
+
+  const handleRemove = () => {
+    let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
+    let favoriteIds = [];
+
+    if (stringifiedFavoriteIds) {
+      favoriteIds = JSON.parse(stringifiedFavoriteIds);
+      localStorage.removeItem("favoriteIds");
+    }
+  };
   return (
     <article className="card">
       <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
@@ -29,6 +39,7 @@ const Card = ({ movie }) => {
         <p>Overview : {overview}</p>
       </div>
       <button onClick={handleFavoriteClick}>Favorites</button>
+      <button onClick={handleRemove}>Remove</button>
     </article>
   );
 };

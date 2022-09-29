@@ -29,7 +29,6 @@ const Favorites = () => {
     return response;
   };
 
-  console.log(movies);
   return <></>;
 };
 
