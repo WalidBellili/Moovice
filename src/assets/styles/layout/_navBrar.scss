@@ -1,5 +1,31 @@
-// @media screen and (max-width: 500px) {
-//   .test {
-//     background: red;
-//   }
-// }
+nav {
+  background: rgb(28, 28, 28);
+  height: 60px;
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 2px solid grey;
+
+  .navLeft {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: 20px;
+      height: 40px;
+      width: 150px;
+    }
+  }
+
+  .navRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+  }
+}

@@ -1,5 +1,8 @@
+import H3 from "./H3";
+import ImgDb from "./ImgDb";
+
 const Card = ({ movie }) => {
-  const { title, poster_path, release_date, overview, id } = movie;
+  const { title, release_date, overview, id } = movie;
 
   const handleFavoriteClick = () => {
     let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
@@ -26,21 +29,24 @@ const Card = ({ movie }) => {
     if (stringifiedFavoriteIds) {
       favoriteIds = JSON.parse(stringifiedFavoriteIds);
       localStorage.removeItem("favoriteIds");
+      console.log(favoriteIds);
     }
   };
 
   return (
-    <article className="">
-      <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
-      <p>{title}</p>
+    <article className="card">
+      <ImgDb movie={movie} />
       <br />
 
-      <div className="">
-        <p>Release date : {release_date}</p>
-        <p>Overview : {overview}</p>
+      <H3 text={title} />
+      <div className="description">
+        <p>{release_date}</p>
+        <p>{overview}</p>
       </div>
-      <button onClick={handleFavoriteClick}>Favorites</button>
-      <button onClick={handleRemove}>Remove</button>
+      <div className="btn">
+        <button onClick={handleFavoriteClick}>Add to Favorites</button>
+        <button onClick={handleRemove}>Remove from favorites</button>
+      </div>
     </article>
   );
 };
