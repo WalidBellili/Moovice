@@ -28,13 +28,14 @@ const Card = ({ movie }) => {
       localStorage.removeItem("favoriteIds");
     }
   };
+
   return (
-    <article className="card">
+    <article className="">
       <img src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt="" />
       <p>{title}</p>
       <br />
 
-      <div className="scroll">
+      <div className="">
         <p>Release date : {release_date}</p>
         <p>Overview : {overview}</p>
       </div>
