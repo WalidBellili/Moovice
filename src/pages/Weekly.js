@@ -1,6 +1,7 @@
 import moment from "moment/moment";
 import { useEffect } from "react";
 import { useState } from "react";
+import Card from "../components/Card";
 
 const Weekly = () => {
   const [movies, setMovies] = useState([]);
@@ -21,11 +22,19 @@ const Weekly = () => {
   const fetchMovies = async () => {
     const request = await fetch(`${url}`);
     const response = await request.json(request);
-    setMovies(response);
+    setMovies(response.results);
   };
   console.log(movies);
 
-  return <div></div>;
+  return (
+    <main>
+      <section className="container">
+        {movies.map((movie) => {
+          return <Card movie={movie} />;
+        })}
+      </section>
+    </main>
+  );
 };
 
 export default Weekly;
