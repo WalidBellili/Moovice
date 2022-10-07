@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import Container from "../components/Container";
-import H1 from "../components/H1";
 
 const Favorites = () => {
   const [movies, setMovies] = useState([]);
@@ -35,14 +33,13 @@ const Favorites = () => {
   console.log(movies);
 
   return (
-    <Container>
-      <H1 text="Favorites" />
+    <main>
       <section className="container">
         {movies.map((movie) => {
           return <Card movie={movie} />;
         })}
       </section>
-    </Container>
+    </main>
   );
 };
 

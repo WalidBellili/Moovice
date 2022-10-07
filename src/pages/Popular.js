@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import Container from "../components/Container";
-import H1 from "../components/H1";
 
 const Popular = () => {
   const [movies, setMovies] = useState([]);
@@ -16,16 +14,15 @@ const Popular = () => {
     const request = await response.json();
     setMovies(request.results);
   };
-  //   console.log(movies);
+  console.log(movies);
   return (
-    <Container>
-      <H1 text="Popular movies" />
+    <main>
       <section className="container">
         {movies.map((movie) => {
-          return <Card movie={movie} />;
+          return <Card movie={movie} />
         })}
       </section>
-    </Container>
+    </main>
   );
 };
 
