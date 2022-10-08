@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import CastingCard from "../components/CastingCard";
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
+  const [cast, setCast] = useState([]);
   const { title, release_date, overview, poster_path } = movies;
 
   useEffect(() => {
     fetchMovieById();
+    fetchCast();
     // eslint-disable-next-line
   }, []);
   const { id } = useParams();
@@ -19,7 +22,15 @@ const Movie = () => {
     const response = await request.json();
     setMovies(response);
   };
-  console.log(movies);
+  //   console.log(movies);
+  const fetchCast = async () => {
+    const requestCast = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US`
+    );
+    const responseCast = await requestCast.json();
+    setCast(responseCast.cast);
+  };
+  console.log(cast);
 
   return (
     <section className="backGroundImage">
@@ -36,6 +47,13 @@ const Movie = () => {
         <br />
         <p>{overview}</p>
       </div>
+      {!cast ? (
+        <p>Loading..</p>
+      ) : (
+        cast.map((actor) => {
+          return <CastingCard actor={actor} />
+        })
+      )}
     </section>
   );
 };
