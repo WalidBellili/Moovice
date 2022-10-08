@@ -33,17 +33,23 @@ const Card = ({ movie }) => {
   return (
     <article className="cardContainer">
       <div className="card">
-        <img
-          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-          alt={title}
-          className="imgDb"
-        />
-        <br />
+        <div className="mainContainer">
+          <div className="theCard">
+            <div className="theFront">
+              <img
+                src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+                alt={title}
+                className=""
+              />
+            </div>
 
-        <div className="description">
-          <p>{release_date}</p>
-          <p>{overview}</p>
+            <div className="theBack">
+              <p>{release_date}</p>
+              <p>{overview}</p>
+            </div>
+          </div>
         </div>
+
         <div className="btn">
           <button onClick={handleFavoriteClick}>Add to Favorites</button>
           <button onClick={handleRemove}>Remove</button>

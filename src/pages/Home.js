@@ -12,6 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     setMovies()
+    // eslint-disable-next-line
   }, [])
 
   const fetchMovies = async url => {

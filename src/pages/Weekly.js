@@ -8,6 +8,7 @@ const Weekly = () => {
 
   useEffect(() => {
     fetchMovies();
+    // eslint-disable-next-line
   }, []);
   const formatDate = "YYYY-MM-DD";
   const TODAY = moment().format(formatDate);

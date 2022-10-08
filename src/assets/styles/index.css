@@ -57,6 +57,42 @@ main .container .card {
 main .container .card img {
   width: 190px;
 }
+main .container .card .mainContainer {
+  width: 250px;
+  height: 320px;
+  position: relative;
+  background: red;
+}
+main .container .card .mainContainer .theCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  background: yellow;
+}
+main .container .card .mainContainer .theCard:hover {
+  transform: rotateY(180deg);
+}
+main .container .card .mainContainer .theCard .theFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: blue;
+  color: purple;
+}
+main .container .card .mainContainer .theCard .theBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background: green;
+  color: purple;
+  transform: rotateY(180deg);
+}
 main .container .card .description {
   text-align: center;
   width: 200px;
