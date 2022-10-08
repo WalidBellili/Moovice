@@ -123,20 +123,28 @@ main .container .card .description {
 }
 
 .backGroundImage {
-  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.backGroundImage .img {
-  margin-top: 50px;
+.backGroundImage .left {
+  width: 30%;
+  text-align: center;
+}
+.backGroundImage .left .img {
+  margin-top: 30px;
   opacity: 0.4;
 }
-.backGroundImage .postionTextParams {
-  position: absolute;
-  font-size: 30px;
-  text-align: center;
-  top: 40px;
+.backGroundImage .left .postionTextParams {
   color: rgb(255, 246, 230);
-  width: 60%;
+}
+.backGroundImage .right {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2%;
+}
+.backGroundImage .right img {
+  width: 100px;
 }/*# sourceMappingURL=index.css.map */

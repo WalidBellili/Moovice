@@ -1,11 +1,13 @@
 const CastingCard = (props) => {
   return (
-    <div>
+    <div className="paramsInfo">
       <div className="min-card-actor">
         <img
           src={`https://image.tmdb.org/t/p/w300/${props.actor.profile_path}`}
+          className="actor"
         />
-        <h1>{`${props.actor.name} (${props.actor.character})`}</h1>
+        <h4>Personnage : {props.actor.character}</h4>
+        <h4>Name : {props.actor.original_name}</h4>
       </div>
     </div>
   );

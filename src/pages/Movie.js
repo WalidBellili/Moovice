@@ -34,26 +34,31 @@ const Movie = () => {
 
   return (
     <section className="backGroundImage">
-      <img
-        src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-        alt=""
-        className="img"
-      />
+      <article className="left">
+        <img
+          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+          alt=""
+          className="img"
+        />
 
-      <div className="postionTextParams">
-        <p>{title}</p>
-        <br />
-        <p>{release_date}</p>
-        <br />
-        <p>{overview}</p>
-      </div>
-      {!cast ? (
-        <p>Loading..</p>
-      ) : (
-        cast.map((actor) => {
-          return <CastingCard actor={actor} />
-        })
-      )}
+        <div className="postionTextParams">
+          <p>{title}</p>
+          <br />
+          <p>{release_date}</p>
+          <br />
+          <p>{overview}</p>
+        </div>
+      </article>
+
+      <article className="right">
+        {!cast ? (
+          <p>Loading..</p>
+        ) : (
+          cast.map((actor) => {
+            return <CastingCard actor={actor} />;
+          })
+        )}
+      </article>
     </section>
   );
 };
