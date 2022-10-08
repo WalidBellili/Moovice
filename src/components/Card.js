@@ -34,6 +34,21 @@ const Card = ({ movie }) => {
     <article className="cardContainer">
       <div className="card">
         <div className="mainContainer">
+          <div onClick={handleFavoriteClick}>
+            <img
+              src={require("../assets/img/heart.png")}
+              alt=""
+              className="heart"
+            />
+          </div>
+          <div onClick={handleRemove}>
+            <img
+              src={require("../assets/img/bucket.png")}
+              alt=""
+              className="bucket"
+            />
+          </div>
+
           <div className="theCard">
             <div className="theFront">
               <img
@@ -45,14 +60,10 @@ const Card = ({ movie }) => {
 
             <div className="theBack">
               <p>{release_date}</p>
+              <br />
               <p>{overview}</p>
             </div>
           </div>
-        </div>
-
-        <div className="btn">
-          <button onClick={handleFavoriteClick}>Add to Favorites</button>
-          <button onClick={handleRemove}>Remove</button>
         </div>
       </div>
     </article>

@@ -61,7 +61,6 @@ main .container .card .mainContainer {
   width: 250px;
   height: 320px;
   position: relative;
-  background: red;
 }
 main .container .card .mainContainer .theCard {
   position: absolute;
@@ -69,7 +68,8 @@ main .container .card .mainContainer .theCard {
   height: 100%;
   transform-style: preserve-3d;
   transition: all 0.5s ease;
-  background: yellow;
+  font-size: 19px;
+  text-align: center;
 }
 main .container .card .mainContainer .theCard:hover {
   transform: rotateY(180deg);
@@ -80,8 +80,6 @@ main .container .card .mainContainer .theCard .theFront {
   height: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: blue;
-  color: purple;
 }
 main .container .card .mainContainer .theCard .theBack {
   position: absolute;
@@ -89,9 +87,22 @@ main .container .card .mainContainer .theCard .theBack {
   height: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: green;
-  color: purple;
   transform: rotateY(180deg);
+}
+main .container .card .mainContainer .heart {
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  width: 50px;
+}
+main .container .card .mainContainer .bucket {
+  cursor: pointer;
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  width: 50px;
 }
 main .container .card .description {
   text-align: center;
