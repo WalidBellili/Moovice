@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import HomePreview from "../components/HomePreview";
+
 import "../App.css";
 
 const Home = () => {
