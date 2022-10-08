@@ -123,7 +123,11 @@ main .container .card .description {
 }
 
 .backGroundImage {
+  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .backGroundImage .left {
   width: 30%;
@@ -134,10 +138,16 @@ main .container .card .description {
   opacity: 0.4;
 }
 .backGroundImage .left .postionTextParams {
+  width: 30%;
+  position: absolute;
+  font-size: 20px;
+  text-align: center;
+  top: 40px;
   color: rgb(255, 246, 230);
 }
 .backGroundImage .right {
   color: white;
+  margin-top: 70px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -147,4 +157,12 @@ main .container .card .description {
 }
 .backGroundImage .right img {
   width: 100px;
+}
+.backGroundImage .boxSimilars {
+  color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
 }/*# sourceMappingURL=index.css.map */

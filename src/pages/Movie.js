@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Card from "../components/Card";
 import CastingCard from "../components/CastingCard";
 
 const Movie = () => {
@@ -30,7 +31,7 @@ const Movie = () => {
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US`
     );
     const responseCast = await requestCast.json();
-    setCast(responseCast.cast.slice(0, 4));
+    setCast(responseCast.cast.slice(0, 3));
   };
   //   console.log(cast);
   const fetchSimilars = async () => {
@@ -38,7 +39,7 @@ const Movie = () => {
       `https://api.themoviedb.org/3/movie/${id}/similar?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US&page=1`
     );
     const responseSimilars = await requestSimilars.json();
-    setSimilars(responseSimilars.results);
+    setSimilars(responseSimilars.results.slice(0, 3));
   };
   console.log(similars);
   //   const filtered = similars.filter((sim) => {
@@ -73,8 +74,15 @@ const Movie = () => {
           })
         )}
       </article>
-      <article>
+      <article className="boxSimilars">
         <h2>See Similar</h2>
+        {!similars ? (
+          <p>Loading..</p>
+        ) : (
+          similars.map((movie) => {
+            return <Card movie={movie} />;
+          })
+        )}
       </article>
     </section>
   );

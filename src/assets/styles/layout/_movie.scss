@@ -1,9 +1,9 @@
 .backGroundImage {
-  //   position: relative;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
+  position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 
   .left {
     width: 30%;
@@ -14,17 +14,18 @@
       opacity: 0.4;
     }
     .postionTextParams {
-      // position: absolute;
-      // font-size: 30px;
-      // text-align: center;
-      // top: 40px;
+      width: 30%;
+      position: absolute;
+      font-size: 20px;
+      text-align: center;
+      top: 40px;
       color: rgb(255, 246, 230);
       // width: 60%;
     }
   }
   .right {
     color: white;
-
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -34,5 +35,13 @@
     img {
       width: 100px;
     }
+  }
+  .boxSimilars {
+    color: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
   }
 }
