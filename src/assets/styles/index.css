@@ -89,6 +89,17 @@ main .container .card .mainContainer .theCard .theBack {
           backface-visibility: hidden;
   transform: rotateY(180deg);
 }
+main .container .card .mainContainer .theCard .theBack button {
+  position: relative;
+  top: 0px;
+  right: 0;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 50px;
+  font-weight: bold;
+  background: transparent;
+  color: Blue;
+}
 main .container .card .mainContainer .heart {
   cursor: pointer;
   position: absolute;
@@ -109,4 +120,23 @@ main .container .card .description {
   width: 200px;
   height: 200px;
   overflow: hidden;
+}
+
+.backGroundImage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.backGroundImage .img {
+  margin-top: 50px;
+  opacity: 0.4;
+}
+.backGroundImage .postionTextParams {
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  top: 40px;
+  color: rgb(255, 246, 230);
+  width: 60%;
 }/*# sourceMappingURL=index.css.map */

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ movie }) => {
   const { title, release_date, overview, id, poster_path } = movie;
 
@@ -54,14 +56,18 @@ const Card = ({ movie }) => {
               <img
                 src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
                 alt={title}
-                className=""
               />
             </div>
-
             <div className="theBack">
+              <p>{title}</p>
+              <br />
               <p>{release_date}</p>
               <br />
               <p>{overview}</p>
+
+              <Link to={`movie/${id}`}>
+                <button>More...</button>
+              </Link>
             </div>
           </div>
         </div>

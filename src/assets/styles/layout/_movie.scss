@@ -1,0 +1,19 @@
+.backGroundImage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .img {
+    margin-top: 50px;
+    opacity: 0.4;
+  }
+  .postionTextParams {
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+    top: 40px;
+    color: rgb(255, 246, 230);
+    width: 60%;
+  }
+}

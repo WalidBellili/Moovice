@@ -53,6 +53,18 @@ main {
             // background: green;
             // color: purple;
             transform: rotateY(180deg);
+
+            button {
+              position: relative;
+              top: 0px;
+              right: 0;
+              cursor: pointer;
+              width: 100px;
+              border-radius: 50px;
+              font-weight: bold;
+              background: transparent;
+              color: Blue;
+            }
           }
         }
         .heart {
