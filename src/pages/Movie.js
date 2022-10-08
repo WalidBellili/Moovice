@@ -5,11 +5,13 @@ import CastingCard from "../components/CastingCard";
 const Movie = () => {
   const [movies, setMovies] = useState([]);
   const [cast, setCast] = useState([]);
+  const [similars, setSimilars] = useState([]);
   const { title, release_date, overview, poster_path } = movies;
 
   useEffect(() => {
     fetchMovieById();
     fetchCast();
+    fetchSimilars();
     // eslint-disable-next-line
   }, []);
   const { id } = useParams();
@@ -28,9 +30,21 @@ const Movie = () => {
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US`
     );
     const responseCast = await requestCast.json();
-    setCast(responseCast.cast);
+    setCast(responseCast.cast.slice(0, 4));
   };
-  console.log(cast);
+  //   console.log(cast);
+  const fetchSimilars = async () => {
+    const requestSimilars = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US&page=1`
+    );
+    const responseSimilars = await requestSimilars.json();
+    setSimilars(responseSimilars.results);
+  };
+  console.log(similars);
+  //   const filtered = similars.filter((sim) => {
+  //     return sim > 10;
+  //   });
+  //   console.log(filtered);
 
   return (
     <section className="backGroundImage">
@@ -58,6 +72,9 @@ const Movie = () => {
             return <CastingCard actor={actor} />;
           })
         )}
+      </article>
+      <article>
+        <h2>See Similar</h2>
       </article>
     </section>
   );
