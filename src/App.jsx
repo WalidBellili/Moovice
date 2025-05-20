@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import "./assets/styles/index.css";
+
 import Favorite from "./pages/Favorites";
 import Popular from "./pages/Popular";
 import Weekly from "./pages/Weekly";
@@ -13,14 +13,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorite />} />
         <Route path="/popular" element={<Popular />} />
         <Route path="/weekly" element={<Weekly />} />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="*" element={<NotFound />} />
-      </Routes>
+      </Routes> */}
     </BrowserRouter>
   );
 };
