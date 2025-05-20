@@ -17,13 +17,14 @@ const Header = () => {
             Accueil
           </NavLink>
           <NavLink
-            to="/top-rated"
+            to="/popular"
             className={({ isActive }) =>
               isActive ? "text-red-400 font-semibold" : "hover:text-red-300"
             }
           >
-            Top Films
+            Populaires
           </NavLink>
+
           <NavLink
             to="/weekly"
             className={({ isActive }) =>
