@@ -12,7 +12,11 @@ import Movie from "./pages/Movie";
 const App = () => {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
+      <nav className="bg-blue-900 text-white p-4">
+        <h1 className="text-2xl font-bold">Moovice</h1>
+      </nav>
+
       {/* <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favorites" element={<Favorite />} />
