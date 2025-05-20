@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
-  define: {
-    'crypto.getRandomValues': 'undefined'
-  }
+  // define: {
+  //   'crypto.getRandomValues': 'undefined'
+  // }
 })
