@@ -1,78 +1,33 @@
+// src/components/Card.jsx
+
 import { Link } from "react-router-dom";
+import { Star } from "lucide-react";
 
 const Card = ({ movie }) => {
-  const { title, release_date, overview, id, poster_path } = movie;
+  const { id, title, release_date, vote_average, poster_path } = movie;
 
-  const handleFavoriteClick = () => {
-    let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
-
-    let favoriteIds = [];
-
-    if (stringifiedFavoriteIds) {
-      favoriteIds = JSON.parse(stringifiedFavoriteIds);
-    }
-
-    if (!favoriteIds.includes(id)) {
-      favoriteIds.push(id);
-      stringifiedFavoriteIds = JSON.stringify(favoriteIds);
-      localStorage.setItem("favoriteIds", stringifiedFavoriteIds);
-    } else {
-      alert("This movie is already a favorite movie");
-    }
-  };
-
-  const handleRemove = () => {
-    let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
-    let favoriteIds = [];
-
-    if (stringifiedFavoriteIds) {
-      favoriteIds = JSON.parse(stringifiedFavoriteIds);
-      localStorage.removeItem("favoriteIds");
-      console.log(favoriteIds);
-    }
-  };
+  const posterUrl = poster_path
+    ? `https://image.tmdb.org/t/p/w500${poster_path}`
+    : "https://via.placeholder.com/300x450?text=No+Image";
 
   return (
-    <article className="cardContainer">
-      <div className="card">
-        <div className="mainContainer">
-          <div onClick={handleFavoriteClick}>
-            <img
-              src={require("../assets/img/heart.png")}
-              alt=""
-              className="heart"
-            />
-          </div>
-          <div onClick={handleRemove}>
-            <img
-              src={require("../assets/img/bucket.png")}
-              alt=""
-              className="bucket"
-            />
-          </div>
-
-          <div className="theCard">
-            <div className="theFront">
-              <img
-                src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-                alt={title}
-              />
-            </div>
-            <div className="theBack">
-              <p>{title}</p>
-              <br />
-              <p>{release_date}</p>
-              <br />
-              <p>{overview}</p>
-
-              <Link to={`movie/${id}`}>
-                <button>More...</button>
-              </Link>
-            </div>
+    <Link to={`/movie/${id}`} className="block">
+      <article className="bg-white rounded-xl shadow-md overflow-hidden transition hover:scale-105 hover:shadow-lg">
+        <img
+          src={posterUrl}
+          alt={title}
+          className="w-full h-[400px] object-cover"
+        />
+        <div className="p-4">
+          <h2 className="text-lg font-bold text-gray-800 truncate">{title}</h2>
+          <p className="text-sm text-gray-500">{release_date}</p>
+          <div className="flex items-center gap-1 mt-2">
+            <Star className="w-4 h-4 text-yellow-400" />
+            <span className="text-sm font-medium text-gray-700">{vote_average}</span>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 };
 

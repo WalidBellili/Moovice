@@ -1,76 +1,40 @@
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
-import "../App.css";
-
 const Home = () => {
-  // const [latestMovie, setLatestMovie] = useState(null);
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-    setMovies();
-    // eslint-disable-next-line
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.results); // debug
+        setMovies(data.results || []);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du fetch des films :", error);
+        setMovies([]);
+      });
   }, []);
 
-  const fetchMovies = async (url) => {
-    const request = await fetch(url);
-    const response = await request.json();
-    return response;
-  };
-
-  const setMovies = async () => {
-    const topRated = await fetchMovies(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=fea42b1e836ac59816b8332e564dbb41`
-    );
-    setTopRatedMovies(topRated.results);
-    console.log(topRatedMovies);
-
-    const nowPlaying = await fetchMovies(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=fea42b1e836ac59816b8332e564dbb41`
-    );
-    setNowPlayingMovies(nowPlaying.results);
-
-    const upcoming = await fetchMovies(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=fea42b1e836ac59816b8332e564dbb41`
-    );
-    setUpcomingMovies(upcoming.results);
-
-    // const latest = await fetchMovies(
-    //   `https://api.themoviedb.org/3/movie/latest?api_key=fea42b1e836ac59816b8332e564dbb41`
-    // );
-    // setLatestMovie(latest);
-  };
-
   return (
-    <>
-      <h1>Home</h1>
-      <main>
-        <h2>Top Rated</h2>
-        <section className="container">
-          {topRatedMovies.map((movie) => {
-            return <Card movie={movie} />;
-          })}
-        </section>
-      </main>
-      <main>
-        <h2>nowPlayingMovies</h2>
-        <section className="container">
-          {nowPlayingMovies.map((movie) => {
-            return <Card movie={movie} />;
-          })}
-        </section>
-      </main>
-      <main>
-        <h2>upcomingMovies</h2>
-        <section className="container">
-          {upcomingMovies.map((movie) => {
-            return <Card movie={movie} />;
-          })}
-        </section>
-      </main>
-    </>
+    <main className="px-4 py-8 bg-gray-900 min-h-screen text-white">
+      <h1 className="text-3xl font-bold mb-6">Films Populaires</h1>
+
+      {movies.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {movies.map((movie) => (
+            <Card key={movie.id} movie={movie} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400">Aucun film à afficher pour le moment.</p>
+      )}
+    </main>
   );
 };
 
