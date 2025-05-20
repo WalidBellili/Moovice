@@ -1,39 +1,38 @@
-import moment from "moment/moment";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
 const Weekly = () => {
   const [movies, setMovies] = useState([]);
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-    fetchMovies();
-    // eslint-disable-next-line
+    fetch(
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Weekly:", data.results);
+        setMovies(data.results || []);
+      })
+      .catch((error) => {
+        console.error("Erreur lors du fetch des tendances :", error);
+        setMovies([]);
+      });
   }, []);
-  const formatDate = "YYYY-MM-DD";
-  const TODAY = moment().format(formatDate);
-  //   console.log(today);
-  const LAST_WEEK = moment().subtract(7, "days").format(formatDate);
-  //   console.log(lastWeek);
-
-  const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${LAST_WEEK}&primary_release_date.lte=${TODAY}&api_key=${process.env.REACT_APP_API_KEY}`;
-
-  //   console.log(url);
-
-  const fetchMovies = async () => {
-    const request = await fetch(`${url}`);
-    const response = await request.json(request);
-    setMovies(response.results);
-  };
-  console.log(movies);
 
   return (
-    <main>
-      <section className="container">
-        {movies.map((movie) => {
-          return <Card movie={movie} />;
-        })}
-      </section>
+    <main className="px-4 py-8 bg-gray-900 min-h-screen text-white">
+      <h1 className="text-3xl font-bold mb-6">Tendances de la Semaine</h1>
+
+      {movies.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {movies.map((movie) => (
+            <Card key={movie.id} movie={movie} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-400">Aucune tendance trouvée.</p>
+      )}
     </main>
   );
 };
