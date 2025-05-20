@@ -1,90 +1,56 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Card from "../components/Card";
-import CastingCard from "../components/CastingCard";
+import { Star } from "lucide-react";
 
 const Movie = () => {
-  const [movies, setMovies] = useState([]);
-  const [cast, setCast] = useState([]);
-  const [similars, setSimilars] = useState([]);
-  const { title, release_date, overview, poster_path } = movies;
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-    fetchMovieById();
-    fetchCast();
-    fetchSimilars();
-    // eslint-disable-next-line
-  }, []);
-  const { id } = useParams();
-  console.log(id);
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=fr-FR`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Film:", data);
+        setMovie(data);
+      })
+      .catch((err) => {
+        console.error("Erreur lors du fetch du film :", err);
+        setMovie(null);
+      });
+  }, [id]);
 
-  const fetchMovieById = async () => {
-    const request = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+  if (!movie) {
+    return (
+      <main className="p-8 bg-gray-900 text-white min-h-screen">
+        <p className="text-gray-400">Chargement du film...</p>
+      </main>
     );
-    const response = await request.json();
-    setMovies(response);
-  };
-  //   console.log(movies);
-  const fetchCast = async () => {
-    const requestCast = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US`
-    );
-    const responseCast = await requestCast.json();
-    setCast(responseCast.cast.slice(0, 3));
-  };
-  //   console.log(cast);
-  const fetchSimilars = async () => {
-    const requestSimilars = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=1068f48961417d98e5c5673164bb2d37&language=en-US&page=1`
-    );
-    const responseSimilars = await requestSimilars.json();
-    setSimilars(responseSimilars.results.slice(0, 3));
-  };
-  console.log(similars);
-  //   const filtered = similars.filter((sim) => {
-  //     return sim > 10;
-  //   });
-  //   console.log(filtered);
+  }
+
+  const posterUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "https://via.placeholder.com/300x450?text=No+Image";
 
   return (
-    <section className="backGroundImage">
-      <article className="left">
+    <main className="bg-gray-900 text-white min-h-screen px-4 py-8">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
         <img
-          src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-          alt=""
-          className="img"
+          src={posterUrl}
+          alt={movie.title}
+          className="w-full md:w-1/3 rounded shadow-md"
         />
-
-        <div className="postionTextParams">
-          <p>{title}</p>
-          <br />
-          <p>{release_date}</p>
-          <br />
-          <p>{overview}</p>
+        <div className="flex-1">
+          <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
+          <p className="text-sm text-gray-400 mb-2">{movie.release_date}</p>
+          <div className="flex items-center gap-2 mb-4">
+            <Star className="w-5 h-5 text-yellow-400" />
+            <span className="text-lg font-medium">{movie.vote_average}</span>
+          </div>
+          <p className="text-gray-200 leading-relaxed">{movie.overview}</p>
         </div>
-      </article>
-
-      <article className="right">
-        {!cast ? (
-          <p>Loading..</p>
-        ) : (
-          cast.map((actor) => {
-            return <CastingCard actor={actor} />;
-          })
-        )}
-      </article>
-      <article className="boxSimilars">
-        <h2>See Similar</h2>
-        {!similars ? (
-          <p>Loading..</p>
-        ) : (
-          similars.map((movie) => {
-            return <Card movie={movie} />;
-          })
-        )}
-      </article>
-    </section>
+      </div>
+    </main>
   );
 };
 
